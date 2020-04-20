@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa2eca06-1cf0-4226-959f-4e088b2383d5" name="Default Changelist" comment="" />
+    <list default="true" id="9a7fcec3-2481-487f-996e-dd450340cd75" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_22" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -22,9 +21,9 @@
     </system>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectId" id="1apHwJ0QBZfCrFwlq6qca3r8kKa" />
+  <component name="ProjectId" id="1apIee0xvSd6MxmmQze4nJTShqu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
@@ -108,11 +107,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="aa2eca06-1cf0-4226-959f-4e088b2383d5" name="Default Changelist" comment="" />
-      <created>1587425851483</created>
+      <changelist id="9a7fcec3-2481-487f-996e-dd450340cd75" name="Default Changelist" comment="" />
+      <created>1587426204878</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1587425851483</updated>
+      <updated>1587426204878</updated>
     </task>
     <servers />
   </component>

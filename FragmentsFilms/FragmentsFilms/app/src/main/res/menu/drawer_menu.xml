@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="General">
+        <menu>
+    <item
+        android:id="@+id/menuAtores"
+        android:icon="@drawable/ic_person_outline_black_24dp"
+        android:title="Atores" />
+    <item
+        android:id="@+id/menuDiretores"
+        android:icon="@drawable/ic_videocam_black_24dp"
+        android:title="Diretores" />
+    <item
+        android:id="@+id/menuFilmes"
+        android:icon="@drawable/ic_local_movies_black_24dp"
+        android:title="Filmes" />
+        </menu>
+    </item>
+</menu>
