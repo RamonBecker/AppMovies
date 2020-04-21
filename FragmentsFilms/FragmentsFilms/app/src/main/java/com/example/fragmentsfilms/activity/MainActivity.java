@@ -1,4 +1,4 @@
-package com.example.fragmentsfilms.main;
+package com.example.fragmentsfilms.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,7 +14,10 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.fragmentsfilms.R;
+import com.example.fragmentsfilms.controller.ControllerAtor;
 import com.example.fragmentsfilms.controller.ControllerFilme;
+import com.example.fragmentsfilms.fragments.RecyclerFragmentAtor;
+import com.example.fragmentsfilms.fragments.RecyclerFragmentDiretor;
 import com.example.fragmentsfilms.fragments.RecyclerFragmentFilme;
 import com.google.android.material.navigation.NavigationView;
 
@@ -45,7 +48,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         actionBarDrawerToggle.syncState();
 
         ControllerFilme controllerFilme = ControllerFilme.getInstance();
-        Log.i("log", String.valueOf("TESTE:"+controllerFilme.getListaFilme()==null));
+        ControllerAtor controllerAtor = ControllerAtor.getInstance();
+        Log.i("log", String.valueOf(controllerAtor.getListAtor()==null));
      //   fragmentTransaction =   fragmentManager.beginTransaction();
      //   MainFragment mainFragment = new MainFragment();
     //    fragmentTransaction.replace(R.id.container_fragment, mainFragment);
@@ -56,25 +60,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
 
+        fragmentTransaction =getSupportFragmentManager().beginTransaction();
         int menuItem = item.getItemId();
 
         if(menuItem == R.id.menuAtores){
+            Log.i("log", "Ator");
 
-        //    fragmentManager = getSupportFragmentManager();
-       //     fragmentTransaction =   fragmentManager.beginTransaction();
-        //    fragmentTransaction.replace(R.id.container_fragment, new MainFragment());
-        //    fragmentTransaction.commit();
+
+            fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentAtor());
+            fragmentTransaction.commit();
+
         }
 
         if(menuItem == R.id.menuDiretores){
-       //     fragmentManager = getSupportFragmentManager();
-       //     fragmentTransaction =   fragmentManager.beginTransaction();
-       //     fragmentTransaction.replace(R.id.container_fragment, new FragmentSecond());
-        //    fragmentTransaction.commit();
+
+            fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentDiretor());
+            fragmentTransaction.commit();
         }
         if(menuItem == R.id.menuFilmes){
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentFilme());
             fragmentTransaction.commit();
         }

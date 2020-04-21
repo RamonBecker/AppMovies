@@ -21,12 +21,8 @@ public class RecyclerFragmentAtor extends Fragment {
 
     private RecyclerView recyclerView;
     private ControllerAtor controllerAtor;
+    private AdapterAtor adapterAtor;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        controllerAtor = ControllerAtor.getInstance();
-    }
 
     @Nullable
     @Override
@@ -34,8 +30,9 @@ public class RecyclerFragmentAtor extends Fragment {
 
         View view = inflater.inflate(R.layout.recycler, container, false);
         recyclerView = view.findViewById(R.id.recyclerView);
+
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 1));
-        AdapterAtor adapterAtor = new AdapterAtor(getContext());
+        adapterAtor = new AdapterAtor(getContext());
         recyclerView.setAdapter(adapterAtor);
 
         return view;

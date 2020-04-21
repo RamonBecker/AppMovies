@@ -57,7 +57,7 @@ public class AdapterAtor extends RecyclerView.Adapter<AdapterAtor.MyViewHolder> 
             super(itemView);
             nome = itemView.findViewById(R.id.textViewNomeAtor);
             dataNascimento = itemView.findViewById(R.id.textViewAnoNascimentoAtor);
-            imageView = itemView.findViewById(R.id.imageViewFilm);
+            imageView = itemView.findViewById(R.id.imageViewAtor);
         }
     }
 }

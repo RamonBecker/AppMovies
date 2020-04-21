@@ -39,25 +39,6 @@ public class AdapterFilme extends RecyclerView.Adapter<AdapterFilme.MyViewHolder
     }
 
 
-   // public void editar(Filme filme, int position){
-        /*
-        controllerFIlme.getListaFilme().get(position).setNome(filme.getNome());
-        controllerFIlme.getListaFilme().get(position).setAno(filme.getAno());
-        controllerFIlme.getListaFilme().get(position).setGenero(filme.getGenero());
-        controllerFIlme.getListaFilme().get(position).setDescricao(filme.getDescricao());
-        notifyItemChanged(position);
-
-         */
- //   }
-
-   // public void adicionarFilme(Filme filme){
-   //     controllerFIlme.getListaFilme().add(filme);
-    //    notifyItemInserted(getItemCount());
-  //  }
-
-
-
-
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
 
@@ -67,20 +48,6 @@ public class AdapterFilme extends RecyclerView.Adapter<AdapterFilme.MyViewHolder
         holder.anoLancamento.setText(filme.getAnoLançamento());
         holder.imagem.setImageResource(filme.getIdImagem());
 
-
-/*
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(v.getContext(), EditarFilme.class);
-                v.getContext().startActivity(i);
-                EditarFilme.tela = "Editar";
-                EditarFilme.posicao = holder.getAdapterPosition();
-            }
-        });
-
-        */
     }
 
     @Override

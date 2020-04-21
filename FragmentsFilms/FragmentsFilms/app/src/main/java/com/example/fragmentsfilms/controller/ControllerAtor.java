@@ -12,8 +12,8 @@ public class ControllerAtor{
 
     private ControllerAtor(){
         listAtor = new ArrayList<>();
+        criarAtor();
     }
-
 
     public static  ControllerAtor getInstance(){
         if(controllerAtor == null){
@@ -26,6 +26,7 @@ public class ControllerAtor{
         listAtor.add(new Ator("Mel Gibson","03/01/1956",R.drawable.mel_gibson));
         listAtor.add(new Ator("Tom Hanks", "09/07/1956", R.drawable.tom_hanks));
         listAtor.add(new Ator("Damiam Lewis","11/02/1971", R.drawable.damian_lewis));
+
     }
 
     public List<Ator> getListAtor() {
