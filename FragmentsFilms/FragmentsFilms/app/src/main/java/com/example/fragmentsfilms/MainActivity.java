@@ -12,7 +12,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.google.android.material.internal.NavigationMenuItemView;
+import com.example.fragmentsfilms.fragments.FragmentSecond;
+import com.example.fragmentsfilms.fragments.MainFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, MainFragment.onFragmentSelected{
