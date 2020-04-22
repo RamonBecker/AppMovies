@@ -11,17 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fragmentsfilms.R;
+import com.example.fragmentsfilms.activity.MainActivity;
 import com.example.fragmentsfilms.controller.ControllerAtor;
 import com.example.fragmentsfilms.entites.Ator;
+import com.example.fragmentsfilms.entites.Diretor;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Collections;
 
 public class AdapterAtor extends RecyclerView.Adapter<AdapterAtor.MyViewHolder> {
 
     private ControllerAtor controllerAtor;
-    private Context context;
+    private MainActivity activity;
 
-    public AdapterAtor(Context context){
+    public AdapterAtor(MainActivity activity){
         controllerAtor = ControllerAtor.getInstance();
-        this.context = context;
+        this.activity = activity;
     }
 
 
@@ -41,6 +46,42 @@ public class AdapterAtor extends RecyclerView.Adapter<AdapterAtor.MyViewHolder> 
         holder.dataNascimento.setText(ator.getDataNascimento());
         holder.imageView.setImageResource(ator.getIdImagem());
     }
+
+
+
+    public void mover(int fromPosition, int toPosition) {
+        if (fromPosition < toPosition) {
+            for (int i = fromPosition; i < toPosition; i++) {
+                Collections.swap(controllerAtor.getListAtor(), i, i + 1);
+            }
+        } else {
+            for (int i = fromPosition; i > toPosition; i--) {
+                Collections.swap(controllerAtor.getListAtor(), i, i - 1);
+            }
+
+            notifyItemMoved(fromPosition, toPosition);
+        }
+
+    }
+    public void remover(int position) {
+        final int posicaoRemovida = position;
+        final Ator atorRemovido = controllerAtor.getListAtor().get(position);
+        controllerAtor.getListAtor().remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, this.getItemCount());
+
+        Snackbar snackbar = Snackbar.make(activity.findViewById(R.id.RelativeLayout), "Item deletado", Snackbar.LENGTH_LONG);
+        snackbar.setAction("Desfazer ?", new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                controllerAtor.getListAtor().add(posicaoRemovida, atorRemovido);
+                notifyItemInserted(posicaoRemovida);
+            }
+        });
+        snackbar.show();
+    }
+
 
     @Override
     public int getItemCount() {

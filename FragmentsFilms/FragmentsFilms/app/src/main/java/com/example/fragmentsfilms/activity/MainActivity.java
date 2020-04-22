@@ -63,13 +63,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int menuItem = item.getItemId();
 
         if(menuItem == R.id.menuAtores){
-            initializeFragment(new RecyclerFragmentAtor());
+            initializeFragment(new RecyclerFragmentAtor(this));
         }
         if(menuItem == R.id.menuDiretores){
-            initializeFragment(new RecyclerFragmentDiretor());
+            initializeFragment(new RecyclerFragmentDiretor(this));
         }
         if(menuItem == R.id.menuFilmes){
-            initializeFragment(new RecyclerFragmentFilme());
+            initializeFragment(new RecyclerFragmentFilme(this));
         }
         if(menuItem == R.id.menuCadastrarAtor){
             registerPerson.typeRegister = "Cadastrar Ator";

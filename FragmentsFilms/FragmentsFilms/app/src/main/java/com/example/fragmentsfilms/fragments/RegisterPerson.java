@@ -111,14 +111,14 @@ public class RegisterPerson extends Fragment {
                         Diretor diretor = new Diretor(nomeText , dataNascimentoText, R.drawable.pessoa);
                         controllerDiretor.addDiretor(diretor);
                         aux = "Diretor";
-                        fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentDiretor());
+                        fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentDiretor(activity));
                     }
 
                     else if(typeRegister.contentEquals("Cadastrar Ator")){
 
                         Ator ator = new Ator(nomeText,dataNascimentoText, R.drawable.pessoa);
                         controllerAtor.addAtor(ator);
-                        fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentAtor());
+                        fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentAtor(activity));
                         aux = "Ator";
                     }
                     Toast.makeText(getContext(), aux+" cadastrado com sucesso !", Toast.LENGTH_SHORT).show();

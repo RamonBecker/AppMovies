@@ -12,23 +12,28 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.fragmentsfilms.R;
+import com.example.fragmentsfilms.activity.MainActivity;
 import com.example.fragmentsfilms.controller.ControllerFilme;
+import com.example.fragmentsfilms.entites.Diretor;
 import com.example.fragmentsfilms.entites.Filme;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Collections;
 
 public class AdapterFilme extends RecyclerView.Adapter<AdapterFilme.MyViewHolder> {
 
     private ControllerFilme controllerFilme;
-    private Context activity;
+    private MainActivity activity;
 
 
     public AdapterFilme(){
+
     }
 
-    public AdapterFilme(AppCompatActivity activity) {
+    public AdapterFilme(MainActivity activity) {
         this.activity = activity;
         this.controllerFilme = ControllerFilme.getInstance();
     }
-
 
     @NonNull
     @Override
@@ -37,7 +42,6 @@ public class AdapterFilme extends RecyclerView.Adapter<AdapterFilme.MyViewHolder
         return new MyViewHolder(itemLista);
 
     }
-
 
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, int position) {
@@ -51,6 +55,41 @@ public class AdapterFilme extends RecyclerView.Adapter<AdapterFilme.MyViewHolder
         holder.diretor.setText(filme.getDiretor().getNome());
 
     }
+
+    public void mover(int fromPosition, int toPosition) {
+        if (fromPosition < toPosition) {
+            for (int i = fromPosition; i < toPosition; i++) {
+                Collections.swap(controllerFilme.getListaFilme(), i, i + 1);
+            }
+        } else {
+            for (int i = fromPosition; i > toPosition; i--) {
+                Collections.swap(controllerFilme.getListaFilme(), i, i - 1);
+            }
+
+            notifyItemMoved(fromPosition, toPosition);
+        }
+
+    }
+
+    public void remover(int position) {
+        final int posicaoRemovida = position;
+        final Filme filmeRemovido = controllerFilme.getListaFilme().get(position);
+        controllerFilme.getListaFilme().remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, this.getItemCount());
+
+        Snackbar snackbar = Snackbar.make(activity.findViewById(R.id.RelativeLayout), "Item deletado", Snackbar.LENGTH_LONG);
+        snackbar.setAction("Desfazer ?", new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                controllerFilme.getListaFilme().add(posicaoRemovida, filmeRemovido);
+                notifyItemInserted(posicaoRemovida);
+            }
+        });
+        snackbar.show();
+    }
+
 
     @Override
     public int getItemCount() {

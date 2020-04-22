@@ -11,16 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fragmentsfilms.R;
+import com.example.fragmentsfilms.activity.MainActivity;
 import com.example.fragmentsfilms.controller.ControllerDiretor;
 import com.example.fragmentsfilms.entites.Diretor;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Collections;
 
 public class AdapterDiretor extends RecyclerView.Adapter<AdapterDiretor.MyViewHolder>{
 
     private ControllerDiretor controllerDiretor;
-    private Context context;
+    private MainActivity activity;
 
-    public AdapterDiretor(Context context){
-        this.context = context;
+    public AdapterDiretor(MainActivity activity){
+        this.activity = activity;
         controllerDiretor = ControllerDiretor.getInstance();
     }
 
@@ -40,6 +44,43 @@ public class AdapterDiretor extends RecyclerView.Adapter<AdapterDiretor.MyViewHo
         holder.dataNascimento.setText(diretor.getDataNascimento());
         holder.imageView.setImageResource(diretor.getIdImagem());
     }
+
+
+    public void mover(int fromPosition, int toPosition) {
+        if (fromPosition < toPosition) {
+            for (int i = fromPosition; i < toPosition; i++) {
+                Collections.swap(controllerDiretor.getListDiretor(), i, i + 1);
+            }
+        } else {
+            for (int i = fromPosition; i > toPosition; i--) {
+                Collections.swap(controllerDiretor.getListDiretor(), i, i - 1);
+            }
+
+            notifyItemMoved(fromPosition, toPosition);
+        }
+
+    }
+    public void remover(int position) {
+        final int posicaoRemovida = position;
+        final Diretor diretorRemovido = controllerDiretor.getListDiretor().get(position);
+        controllerDiretor.getListDiretor().remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, this.getItemCount());
+
+        Snackbar snackbar = Snackbar.make(activity.findViewById(R.id.RelativeLayout), "Item deletado", Snackbar.LENGTH_LONG);
+        snackbar.setAction("Desfazer ?", new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                controllerDiretor.getListDiretor().add(posicaoRemovida, diretorRemovido);
+                notifyItemInserted(posicaoRemovida);
+            }
+        });
+        snackbar.show();
+    }
+
+
+
 
     @Override
     public int getItemCount() {

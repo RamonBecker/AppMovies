@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.fragmentsfilms.R;
+import com.example.fragmentsfilms.activity.MainActivity;
 import com.example.fragmentsfilms.controller.ControllerAtor;
 import com.example.fragmentsfilms.controller.ControllerDiretor;
 import com.example.fragmentsfilms.controller.ControllerFilme;
@@ -46,7 +47,7 @@ public class RegisterFilm extends Fragment {
     private EditText anoFilme;
     private Spinner spinnerAtor;
     private Spinner spinnerDiretor;
-    private Activity activity;
+    private MainActivity activity;
     private ControllerAtor controllerAtor;
     private ControllerDiretor controllerDiretor;
     private ControllerFilme controllerFilme;
@@ -60,7 +61,7 @@ public class RegisterFilm extends Fragment {
     private String itemSelected;
     private FragmentTransaction fragmentTransaction;
 
-    public RegisterFilm(Activity activity){
+    public RegisterFilm(MainActivity activity){
         this.activity = activity;
     }
 
@@ -199,7 +200,7 @@ public class RegisterFilm extends Fragment {
 
                     Toast.makeText(getContext(), "Filme cadastrado com sucesso !", Toast.LENGTH_LONG).show();
                     fragmentTransaction = getFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentFilme());
+                    fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentFilme(activity));
 
                     Thread.sleep(100);
 
