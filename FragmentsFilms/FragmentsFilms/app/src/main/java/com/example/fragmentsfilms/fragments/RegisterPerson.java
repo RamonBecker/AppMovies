@@ -11,6 +11,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -74,12 +75,15 @@ public class RegisterPerson extends Fragment {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String aux = "";
                 nomeText =  String.valueOf(namePerson.getText());
                 dataNascimentoText = String.valueOf(dataNascimentoPerson.getText());
                 if(typeRegister.contentEquals("Cadastrar Diretor")){
                     Log.i("log", "Cadastrar Diretor:"+nomeText + " "+ dataNascimentoText);
                     Diretor diretor = new Diretor(nomeText , dataNascimentoText, R.drawable.pessoa);
                     controllerDiretor.addDiretor(diretor);
+                    aux = "Diretor";
                 }
 
                 else if(typeRegister.contentEquals("Cadastrar Ator")){
@@ -87,7 +91,9 @@ public class RegisterPerson extends Fragment {
                     Log.i("log", "Cadastrar Ator:"+nomeText + " "+ dataNascimentoText);
                     Ator ator = new Ator(nomeText,dataNascimentoText, R.drawable.pessoa);
                     controllerAtor.addAtor(ator);
+                    aux = "Ator";
                 }
+                Toast.makeText(getContext(), aux+" cadastrado com sucesso !", Toast.LENGTH_SHORT).show();
             }
         });
 
