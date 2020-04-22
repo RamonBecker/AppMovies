@@ -6,11 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.SpinnerAdapter;
+
 import com.example.fragmentsfilms.R;
 import com.example.fragmentsfilms.controller.ControllerAtor;
 import com.example.fragmentsfilms.controller.ControllerFilme;
@@ -19,6 +22,7 @@ import com.example.fragmentsfilms.fragments.RecyclerFragmentAtor;
 import com.example.fragmentsfilms.fragments.RecyclerFragmentDiretor;
 import com.example.fragmentsfilms.fragments.RecyclerFragmentFilme;
 import com.example.fragmentsfilms.fragments.RegisterPerson;
+import com.example.fragmentsfilms.fragments.TesteSpinner;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -57,40 +61,39 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
 
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
+
         int menuItem = item.getItemId();
 
         if(menuItem == R.id.menuAtores){
-            Log.i("log", "Ator");
-            fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentAtor());
-            fragmentTransaction.commit();
-
+            initializeFragment(new RecyclerFragmentAtor());
         }
-
         if(menuItem == R.id.menuDiretores){
-
-            fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentDiretor());
-            fragmentTransaction.commit();
+            initializeFragment(new RecyclerFragmentDiretor());
         }
         if(menuItem == R.id.menuFilmes){
-            fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentFilme());
-            fragmentTransaction.commit();
+            initializeFragment(new RecyclerFragmentFilme());
         }
-
         if(menuItem == R.id.menuCadastrarAtor){
             registerPerson.typeRegister = "Cadastrar Ator";
-            Log.i("log", "Cadastrar Ator");
-            fragmentTransaction.replace(R.id.container_fragment, new RegisterPerson(fragmentManager));
-            fragmentTransaction.commit();
+            initializeFragment(new RegisterPerson(fragmentManager));
         }
 
         if(menuItem == R.id.menuItemCadastrarDiretor){
             registerPerson.typeRegister = "Cadastrar Diretor";
-            Log.i("log", "Cadastrar Diretor");
-            fragmentTransaction.replace(R.id.container_fragment, new RegisterPerson(fragmentManager));
-            fragmentTransaction.commit();
+            initializeFragment(new RegisterPerson(fragmentManager));
+        }
+
+        if(menuItem == R.id.menuCadastrarFilme){
+            initializeFragment(new TesteSpinner(this));
         }
         return true;
     }
+
+    private void initializeFragment(Fragment fragment){
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container_fragment, fragment);
+        fragmentTransaction.commit();
+    }
+
 }

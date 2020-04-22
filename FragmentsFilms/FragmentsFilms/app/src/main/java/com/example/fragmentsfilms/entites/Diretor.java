@@ -5,6 +5,8 @@ public class Diretor {
     private String dataNascimento;
     private int idImagem;
 
+    
+
     public Diretor(String nome, String dataNascimento, int idImagem) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -37,10 +39,6 @@ public class Diretor {
 
     @Override
     public String toString() {
-        return "Diretor{" +
-                "nome='" + nome + '\'' +
-                ", dataNascimento='" + dataNascimento + '\'' +
-                ", idImagem=" + idImagem +
-                '}';
+        return "Nome:"+nome+" Nascimento:"+dataNascimento;
     }
 }

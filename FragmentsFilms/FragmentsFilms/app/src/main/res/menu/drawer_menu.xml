@@ -16,10 +16,16 @@
         android:title="Filmes" />
             <item
                 android:id="@+id/menuCadastrarAtor"
+                android:icon="@drawable/ic_person_black_24dp"
                 android:title="Cadastrar Ator" />
             <item
                 android:id="@+id/menuItemCadastrarDiretor"
+                android:icon="@drawable/ic_person_black_24dp"
                 android:title="Cadastrar Diretor" />
+            <item
+                android:id="@+id/menuCadastrarFilme"
+                android:icon="@drawable/ic_add_to_photos_black_24dp"
+                android:title="Cadastrar Filme" />
         </menu>
     </item>
 </menu>

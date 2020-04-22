@@ -86,30 +86,38 @@ public class RegisterPerson extends Fragment {
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String aux = "";
-                nomeText =  String.valueOf(namePerson.getText());
-                dataNascimentoText = String.valueOf(dataNascimentoPerson.getText());
+                    try {
+                    String aux = "";
+                    nomeText =  String.valueOf(namePerson.getText());
+                    dataNascimentoText = String.valueOf(dataNascimentoPerson.getText());
 
-                fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction = fragmentManager.beginTransaction();
 
-                if(typeRegister.contentEquals("Cadastrar Diretor")){
-                    Log.i("log", "Cadastrar Diretor:"+nomeText + " "+ dataNascimentoText);
-                    Diretor diretor = new Diretor(nomeText , dataNascimentoText, R.drawable.pessoa);
-                    controllerDiretor.addDiretor(diretor);
-                    aux = "Diretor";
-                    fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentDiretor());
+                    if(typeRegister.contentEquals("Cadastrar Diretor")){
+
+                        Diretor diretor = new Diretor(nomeText , dataNascimentoText, R.drawable.pessoa);
+                        controllerDiretor.addDiretor(diretor);
+                        aux = "Diretor";
+                        fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentDiretor());
+                    }
+
+                    else if(typeRegister.contentEquals("Cadastrar Ator")){
+
+                        Ator ator = new Ator(nomeText,dataNascimentoText, R.drawable.pessoa);
+                        controllerAtor.addAtor(ator);
+                        fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentAtor());
+                        aux = "Ator";
+                    }
+                    Toast.makeText(getContext(), aux+" cadastrado com sucesso !", Toast.LENGTH_SHORT).show();
+
+                        Thread.sleep(100);
+
+
+                    fragmentTransaction.commit();
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-
-                else if(typeRegister.contentEquals("Cadastrar Ator")){
-
-                    Log.i("log", "Cadastrar Ator:"+nomeText + " "+ dataNascimentoText);
-                    Ator ator = new Ator(nomeText,dataNascimentoText, R.drawable.pessoa);
-                    controllerAtor.addAtor(ator);
-                    fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentAtor());
-                    aux = "Ator";
-                }
-                Toast.makeText(getContext(), aux+" cadastrado com sucesso !", Toast.LENGTH_SHORT).show();
-                fragmentTransaction.commit();
             }
         });
 

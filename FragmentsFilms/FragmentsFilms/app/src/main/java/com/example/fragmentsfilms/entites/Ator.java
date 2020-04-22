@@ -5,6 +5,12 @@ public class Ator {
     private String dataNascimento;
     private int idImagem;
 
+
+    public Ator(String nome, String dataNascimento) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+    }
+
     public Ator(String nome, String dataNascimento, int idImagem) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -37,10 +43,6 @@ public class Ator {
 
     @Override
     public String toString() {
-        return "Ator{" +
-                "nome='" + nome + '\'' +
-                ", dataNascimento='" + dataNascimento + '\'' +
-                ", idImagem=" + idImagem +
-                '}';
+        return "Nome:"+nome+" Nascimento:"+dataNascimento;
     }
 }
