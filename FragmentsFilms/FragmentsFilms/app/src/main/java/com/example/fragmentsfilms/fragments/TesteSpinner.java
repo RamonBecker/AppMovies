@@ -44,34 +44,30 @@ public class TesteSpinner extends Fragment {
 
         spinnerAtor = view.findViewById(R.id.spinnerAtor);
         spinnerDiretor = view.findViewById(R.id.spinnerDiretor);
-
         controllerAtor = ControllerAtor.getInstance();
         controllerDiretor = ControllerDiretor.getInstance();
 
-       dataAdapterAtor = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item);
-       dataAdapterAtor.add(new Ator("Selecione o Ator",""));
-       dataAdapterAtor.addAll(controllerAtor.getListAtor());
-       dataAdapterAtor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // adapterAtor.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-
-        spinnerAtor.setAdapter(dataAdapterAtor);
-
+        dataAdapterAtor = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item);
+        dataAdapterAtor.add(new Ator("Escolhe a sua opção",""));
+        dataAdapterAtor.addAll(controllerAtor.getListAtor());
+        dataAdapterAtor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         dataAdapterDiretor = new ArrayAdapter<>(getContext(),android.R.layout.simple_spinner_item );
-        dataAdapterDiretor.add(new Diretor());
-        actionSpinnerAtor(spinnerAtor);
+        dataAdapterDiretor.add(new Diretor("Escolha a sua opção",""));
+        dataAdapterDiretor.addAll(controllerDiretor.getListDiretor());
+        spinnerAtor.setAdapter(dataAdapterAtor);
+        spinnerDiretor.setAdapter(dataAdapterDiretor);
+        actionSpinner(spinnerAtor);
+        actionSpinner(spinnerDiretor);
 
         return view;
     }
 
-    private void actionSpinnerAtor(Spinner spinner){
+    private void actionSpinner(Spinner spinner){
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                if(parent.getItemAtPosition(position).equals("Choose Category")){
-
+                if(parent.getItemAtPosition(position).equals("Escolha a sua opção")){
                 }
                 else{
                     String item = parent.getItemAtPosition(position).toString();

@@ -5,7 +5,10 @@ public class Diretor {
     private String dataNascimento;
     private int idImagem;
 
-    
+    public Diretor(String nome, String dataNascimento) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+    }
 
     public Diretor(String nome, String dataNascimento, int idImagem) {
         this.nome = nome;
@@ -39,6 +42,6 @@ public class Diretor {
 
     @Override
     public String toString() {
-        return "Nome:"+nome+" Nascimento:"+dataNascimento;
+        return nome+" "+dataNascimento;
     }
 }

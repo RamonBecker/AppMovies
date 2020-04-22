@@ -43,6 +43,6 @@ public class Ator {
 
     @Override
     public String toString() {
-        return "Nome:"+nome+" Nascimento:"+dataNascimento;
+        return nome+" "+dataNascimento;
     }
 }
