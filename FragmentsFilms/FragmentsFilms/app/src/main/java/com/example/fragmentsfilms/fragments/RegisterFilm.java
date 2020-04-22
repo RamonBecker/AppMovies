@@ -18,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.fragmentsfilms.R;
 import com.example.fragmentsfilms.controller.ControllerAtor;
@@ -57,6 +58,7 @@ public class RegisterFilm extends Fragment {
     private Ator ator;
     private Diretor diretor;
     private String itemSelected;
+    private FragmentTransaction fragmentTransaction;
 
     public RegisterFilm(Activity activity){
         this.activity = activity;
@@ -181,17 +183,30 @@ public class RegisterFilm extends Fragment {
     }
 
     private void actionButton(Button button){
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nome = String.valueOf(nomeFilme.getText());
-                String genero = String.valueOf(generoFilme.getText());
-                String ano = String.valueOf(anoFilme.getText());
-                Filme filme = new Filme(nome, genero, ano, R.drawable.filme );
-                filme.setAtor(ator);
-                filme.setDiretor(diretor);
-                controllerFilme.getListaFilme().add(filme);
-                clear();
+                try {
+                    String nome = String.valueOf(nomeFilme.getText());
+                    String genero = String.valueOf(generoFilme.getText());
+                    String ano = String.valueOf(anoFilme.getText());
+                    Filme filme = new Filme(nome, genero, ano, R.drawable.filme );
+                    filme.setAtor(ator);
+                    filme.setDiretor(diretor);
+                    controllerFilme.getListaFilme().add(filme);
+
+                    Toast.makeText(getContext(), "Filme cadastrado com sucesso !", Toast.LENGTH_LONG).show();
+                    fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentFilme());
+
+                    Thread.sleep(100);
+
+                    fragmentTransaction.commit();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

@@ -24,10 +24,11 @@ public class ControllerDiretor {
     }
 
     public void criarDiretor(){
-        this.listDiretor.add(new Diretor("Mel Gibson","03/01/1956", R.drawable.mel_gibson));
         this.listDiretor.add(new Diretor("Todd Phillps", "20/12/1970", R.drawable.todd_phillips));
-        this.listDiretor.add(new Diretor("Stephen Ambrose","10/01/1936/",R.drawable.stephen_ambrose));
+        this.listDiretor.add(new Diretor("Mel Gibson","03/01/1956", R.drawable.mel_gibson));
         this.listDiretor.add(new Diretor("Steven Spielberg ","18/12/1946",R.drawable.steven_spielberg));
+        this.listDiretor.add(new Diretor("Stephen Ambrose","10/01/1936/",R.drawable.stephen_ambrose));
+
     }
 
     public void addDiretor(Diretor diretor){

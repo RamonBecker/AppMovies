@@ -47,6 +47,8 @@ public class AdapterFilme extends RecyclerView.Adapter<AdapterFilme.MyViewHolder
         holder.genero.setText(filme.getGenero());
         holder.anoLancamento.setText(filme.getAnoLançamento());
         holder.imagem.setImageResource(filme.getIdImagem());
+        holder.ator.setText(filme.getAtor().getNome());
+        holder.diretor.setText(filme.getDiretor().getNome());
 
     }
 
@@ -62,6 +64,8 @@ public class AdapterFilme extends RecyclerView.Adapter<AdapterFilme.MyViewHolder
         private TextView genero;
         private TextView anoLancamento;
         private ImageView imagem;
+        private TextView diretor;
+        private TextView ator;
 
         public MyViewHolder(@NonNull View itemView) {
 
@@ -70,6 +74,8 @@ public class AdapterFilme extends RecyclerView.Adapter<AdapterFilme.MyViewHolder
             genero = itemView.findViewById(R.id.textViewGenero);
             anoLancamento = itemView.findViewById(R.id.textViewAnoLancamento);
             imagem = itemView.findViewById(R.id.imageViewFilm);
+            diretor = itemView.findViewById(R.id.textViewDiretor);
+            ator = itemView.findViewById(R.id.textViewProtagonista);
         }
     }
 }

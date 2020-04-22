@@ -104,8 +104,6 @@ public class RegisterPerson extends Fragment {
                     nomeText =  String.valueOf(namePerson.getText());
                     dataNascimentoText = String.valueOf(dataNascimentoPerson.getText());
 
-                    fragmentTransaction = activity.getFragmentTransaction();
-
                     fragmentTransaction = getFragmentManager().beginTransaction();
 
                     if(typeRegister.contentEquals("Cadastrar Diretor")){
