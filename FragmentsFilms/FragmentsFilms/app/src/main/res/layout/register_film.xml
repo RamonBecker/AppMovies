@@ -11,8 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginEnd="95dp"
-        android:layout_marginBottom="85dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="22dp"
         android:text="Cadastro de Filme"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/spinnerAtor"
@@ -20,12 +20,12 @@
 
     <Spinner
         android:id="@+id/spinnerAtor"
-        android:layout_width="253dp"
-        android:layout_height="40dp"
+        android:layout_width="261dp"
+        android:layout_height="38dp"
         android:layout_gravity="center"
 
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="21dp"
         app:layout_constraintBottom_toTopOf="@+id/spinnerDiretor"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -33,18 +33,18 @@
         android:id="@+id/textView3"
         android:layout_width="61dp"
         android:layout_height="19dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="43dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="35dp"
         android:text="Atores:"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/spinnerAtor" />
 
     <Spinner
         android:id="@+id/spinnerDiretor"
-        android:layout_width="253dp"
-        android:layout_height="44dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="35dp"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="18dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextRegisterNameFilm"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -52,8 +52,8 @@
         android:id="@+id/textView5"
         android:layout_width="54dp"
         android:layout_height="29dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginBottom="32dp"
         android:text="Diretor"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintStart_toStartOf="parent" />
@@ -62,8 +62,8 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="34dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="48dp"
         android:text="Nome do filme:"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="parent" />
@@ -72,8 +72,8 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="63dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="48dp"
         android:text="Genero:"
         app:layout_constraintBottom_toTopOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="parent" />
@@ -82,8 +82,7 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="139dp"
+        android:layout_marginBottom="260dp"
         android:text="Ano de lançamento:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -92,8 +91,8 @@
         android:id="@+id/editTextRegisterNameFilm"
         android:layout_width="263dp"
         android:layout_height="43dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="22dp"
         android:ems="10"
         android:hint="Digite o nome do filme"
         android:inputType="textPersonName"
@@ -102,10 +101,10 @@
 
     <EditText
         android:id="@+id/editTextRegisterGenero"
-        android:layout_width="265dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="23dp"
+        android:layout_width="262dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
         android:hint="Digite o genero do filme"
         android:inputType="textPersonName"
@@ -114,12 +113,12 @@
 
     <EditText
         android:id="@+id/editTextRegisterDate"
-        android:layout_width="260dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="42dp"
+        android:layout_width="245dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
-        android:hint="Selecione a data de lançamento"
+        android:hint="Clique para selecionar a data"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/buttonRegisterFilm"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -128,8 +127,8 @@
         android:id="@+id/buttonRegisterFilm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="161dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="164dp"
         android:text="Cadastrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

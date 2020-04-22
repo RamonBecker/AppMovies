@@ -1,5 +1,6 @@
 package com.example.fragmentsfilms.fragments;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.example.fragmentsfilms.R;
+import com.example.fragmentsfilms.activity.MainActivity;
 import com.example.fragmentsfilms.controller.ControllerAtor;
 import com.example.fragmentsfilms.controller.ControllerDiretor;
 import com.example.fragmentsfilms.entites.Ator;
@@ -38,15 +40,14 @@ public class RegisterPerson extends Fragment {
     private String nomeText;
     private  String dataNascimentoText;
     private FragmentTransaction fragmentTransaction;
-    private FragmentManager fragmentManager;
+    private MainActivity activity;
 
-    public RegisterPerson(FragmentManager fragmentManager){
-        this.fragmentManager = fragmentManager;
+    public RegisterPerson(MainActivity activity){
+        this.activity = activity;
     }
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
     }
 
@@ -64,7 +65,16 @@ public class RegisterPerson extends Fragment {
         controllerAtor = ControllerAtor.getInstance();
         controllerDiretor = ControllerDiretor.getInstance();
 
-        dataNascimentoPerson.setOnClickListener(new View.OnClickListener() {
+        actionButton(buttonRegister);
+        actionCalender(dataNascimentoPerson);
+        titulo.setText(typeRegister);
+
+        return view;
+    }
+
+
+    private void actionCalender(EditText date){
+        date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Calendar cldr = Calendar.getInstance();
@@ -82,16 +92,21 @@ public class RegisterPerson extends Fragment {
             }
         });
 
+    }
 
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+    private void actionButton(Button button){
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    try {
+                try {
                     String aux = "";
                     nomeText =  String.valueOf(namePerson.getText());
                     dataNascimentoText = String.valueOf(dataNascimentoPerson.getText());
 
-                    fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction = activity.getFragmentTransaction();
+
+                    fragmentTransaction = getFragmentManager().beginTransaction();
 
                     if(typeRegister.contentEquals("Cadastrar Diretor")){
 
@@ -110,7 +125,7 @@ public class RegisterPerson extends Fragment {
                     }
                     Toast.makeText(getContext(), aux+" cadastrado com sucesso !", Toast.LENGTH_SHORT).show();
 
-                        Thread.sleep(100);
+                    Thread.sleep(100);
 
 
                     fragmentTransaction.commit();
@@ -120,9 +135,5 @@ public class RegisterPerson extends Fragment {
                 }
             }
         });
-
-        titulo.setText(typeRegister);
-
-        return view;
     }
 }

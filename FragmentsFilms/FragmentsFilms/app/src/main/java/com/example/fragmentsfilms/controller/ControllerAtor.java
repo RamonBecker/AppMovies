@@ -32,6 +32,15 @@ public class ControllerAtor{
         listAtor.add(new Ator("Damiam Lewis","11/02/1971", R.drawable.damian_lewis));
     }
 
+    public Ator buscarAtor(String nome){
+        for (Ator ator: listAtor) {
+            if(ator.getNome().equals(nome)){
+                return ator;
+            }
+        }
+        return null;
+    }
+
     public List<Ator> getListAtor() {
         return listAtor;
     }

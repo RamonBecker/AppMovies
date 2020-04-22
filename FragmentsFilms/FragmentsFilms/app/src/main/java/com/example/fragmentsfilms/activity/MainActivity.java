@@ -12,17 +12,15 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.SpinnerAdapter;
 
 import com.example.fragmentsfilms.R;
 import com.example.fragmentsfilms.controller.ControllerAtor;
 import com.example.fragmentsfilms.controller.ControllerFilme;
-import com.example.fragmentsfilms.fragments.DateFrag;
 import com.example.fragmentsfilms.fragments.RecyclerFragmentAtor;
 import com.example.fragmentsfilms.fragments.RecyclerFragmentDiretor;
 import com.example.fragmentsfilms.fragments.RecyclerFragmentFilme;
 import com.example.fragmentsfilms.fragments.RegisterPerson;
-import com.example.fragmentsfilms.fragments.TesteSpinner;
+import com.example.fragmentsfilms.fragments.RegisterFilm;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
@@ -75,16 +73,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(menuItem == R.id.menuCadastrarAtor){
             registerPerson.typeRegister = "Cadastrar Ator";
-            initializeFragment(new RegisterPerson(fragmentManager));
+            initializeFragment(new RegisterPerson(this));
         }
 
         if(menuItem == R.id.menuItemCadastrarDiretor){
             registerPerson.typeRegister = "Cadastrar Diretor";
-            initializeFragment(new RegisterPerson(fragmentManager));
+            initializeFragment(new RegisterPerson(this));
         }
 
         if(menuItem == R.id.menuCadastrarFilme){
-            initializeFragment(new TesteSpinner(this));
+            initializeFragment(new RegisterFilm(this));
         }
         return true;
     }
@@ -96,4 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.commit();
     }
 
+    public FragmentTransaction getFragmentTransaction() {
+        return fragmentTransaction;
+    }
 }

@@ -34,6 +34,16 @@ public class ControllerDiretor {
         this.listDiretor.add(diretor);
     }
 
+
+    public Diretor buscarDiretor(String nome){
+        for (Diretor diretor : listDiretor) {
+            if(diretor.getNome().equals(nome)){
+                return  diretor;
+            }
+        }
+        return null;
+    }
+
     public List<Diretor> getListDiretor() {
         return listDiretor;
     }
