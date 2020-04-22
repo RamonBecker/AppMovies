@@ -57,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
 
-        fragmentTransaction =getSupportFragmentManager().beginTransaction();
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
         int menuItem = item.getItemId();
 
         if(menuItem == R.id.menuAtores){
@@ -80,14 +81,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(menuItem == R.id.menuCadastrarAtor){
             registerPerson.typeRegister = "Cadastrar Ator";
             Log.i("log", "Cadastrar Ator");
-            fragmentTransaction.replace(R.id.container_fragment, new RegisterPerson());
+            fragmentTransaction.replace(R.id.container_fragment, new RegisterPerson(fragmentManager));
             fragmentTransaction.commit();
         }
 
         if(menuItem == R.id.menuItemCadastrarDiretor){
             registerPerson.typeRegister = "Cadastrar Diretor";
             Log.i("log", "Cadastrar Diretor");
-            fragmentTransaction.replace(R.id.container_fragment, new RegisterPerson());
+            fragmentTransaction.replace(R.id.container_fragment, new RegisterPerson(fragmentManager));
             fragmentTransaction.commit();
         }
         return true;

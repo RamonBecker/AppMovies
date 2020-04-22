@@ -16,7 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import com.example.fragmentsfilms.R;
 import com.example.fragmentsfilms.controller.ControllerAtor;
 import com.example.fragmentsfilms.controller.ControllerDiretor;
@@ -36,6 +37,18 @@ public class RegisterPerson extends Fragment {
     private DatePickerDialog picker;
     private String nomeText;
     private  String dataNascimentoText;
+    private FragmentTransaction fragmentTransaction;
+    private FragmentManager fragmentManager;
+
+    public RegisterPerson(FragmentManager fragmentManager){
+        this.fragmentManager = fragmentManager;
+    }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+    }
 
     @Nullable
     @Override
@@ -70,20 +83,21 @@ public class RegisterPerson extends Fragment {
         });
 
 
-
-
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String aux = "";
                 nomeText =  String.valueOf(namePerson.getText());
                 dataNascimentoText = String.valueOf(dataNascimentoPerson.getText());
+
+                fragmentTransaction = fragmentManager.beginTransaction();
+
                 if(typeRegister.contentEquals("Cadastrar Diretor")){
                     Log.i("log", "Cadastrar Diretor:"+nomeText + " "+ dataNascimentoText);
                     Diretor diretor = new Diretor(nomeText , dataNascimentoText, R.drawable.pessoa);
                     controllerDiretor.addDiretor(diretor);
                     aux = "Diretor";
+                    fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentDiretor());
                 }
 
                 else if(typeRegister.contentEquals("Cadastrar Ator")){
@@ -91,9 +105,11 @@ public class RegisterPerson extends Fragment {
                     Log.i("log", "Cadastrar Ator:"+nomeText + " "+ dataNascimentoText);
                     Ator ator = new Ator(nomeText,dataNascimentoText, R.drawable.pessoa);
                     controllerAtor.addAtor(ator);
+                    fragmentTransaction.replace(R.id.container_fragment, new RecyclerFragmentAtor());
                     aux = "Ator";
                 }
                 Toast.makeText(getContext(), aux+" cadastrado com sucesso !", Toast.LENGTH_SHORT).show();
+                fragmentTransaction.commit();
             }
         });
 
