@@ -14,6 +14,12 @@
         android:id="@+id/menuFilmes"
         android:icon="@drawable/ic_local_movies_black_24dp"
         android:title="Filmes" />
+            <item
+                android:id="@+id/menuCadastrarAtor"
+                android:title="Cadastrar Ator" />
+            <item
+                android:id="@+id/menuItemCadastrarDiretor"
+                android:title="Cadastrar Diretor" />
         </menu>
     </item>
 </menu>

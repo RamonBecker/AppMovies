@@ -30,6 +30,10 @@ public class ControllerDiretor {
         this.listDiretor.add(new Diretor("Steven Spielberg ","18/12/1946",R.drawable.steven_spielberg));
     }
 
+    public void addDiretor(Diretor diretor){
+        this.listDiretor.add(diretor);
+    }
+
     public List<Diretor> getListDiretor() {
         return listDiretor;
     }
