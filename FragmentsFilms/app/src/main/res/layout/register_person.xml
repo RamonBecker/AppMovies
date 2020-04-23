@@ -10,63 +10,63 @@
         android:id="@+id/textViewNomePserson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="192dp"
+        android:layout_marginBottom="16dp"
         android:text="Nome:"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView4"
-        app:layout_constraintEnd_toStartOf="@+id/editTextNamePerson" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextNamePerson"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textViewTituloPerson"
-        android:layout_width="235dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="140dp"
+        android:layout_width="140dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="28dp"
         android:text="TextView"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewRegisterPerson"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageViewRegisterPerson"
-        android:layout_width="188dp"
-        android:layout_height="192dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNamePerson"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="180dp"
+        android:layout_height="174dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNomePserson"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_person_outline_black_24dp" />
 
     <EditText
         android:id="@+id/editTextNamePerson"
-        android:layout_width="269dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="14dp"
+        android:layout_width="276dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="Digite o nome"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextAnoNascimento"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginEnd="135dp"
+        android:layout_marginBottom="15dp"
         android:text="Ano de Nascimento:"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
-        app:layout_constraintEnd_toStartOf="@+id/editTextAnoNascimento" />
+        app:layout_constraintBottom_toTopOf="@+id/editTextAnoNascimento"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="120dp"
         android:layout_height="59dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="184dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="80dp"
         android:text="Cadastrar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +78,7 @@
         android:layout_width="274dp"
         android:layout_height="44dp"
         android:layout_marginEnd="68dp"
-        android:layout_marginBottom="74dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
         android:hint="Selecione a data de Nascimento"
         android:inputType="textPersonName"
