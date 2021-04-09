@@ -36,6 +36,7 @@ or install github https://desktop.github.com/
 - Java
 - RecyclerView
 - CardView
+- Fragments
 
 ## :memo: Developed features
 
